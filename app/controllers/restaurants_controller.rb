@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
   def destroy
   end
 
+private
   def restaurant_params
     params.required(:restaurant).permit(:name, :description, :address, :phone)
   end
