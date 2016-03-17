@@ -16,7 +16,10 @@
     <td><%= r.description %></td>
     <td><%= r.address %></td>
     <td><%= r.phone %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(r) %></td>
     <td><%= link_to 'Show', restaurant_path(r) %></td>
+    <td><%= link_to 'Destroy', restaurant_path(r), method: :delete %>
+    </td>
   </tr>
   <% end %>
 </table>
