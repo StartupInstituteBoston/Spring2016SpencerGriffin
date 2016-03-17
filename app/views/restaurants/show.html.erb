@@ -2,3 +2,19 @@
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 <%= link_to 'Destory', restaurant_path(@restaurant), method: :delete %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Address</th>
+    <th>Phone</th>
+  </tr>
+
+  <tr>
+    <td><%= @restaurant.name %></td>
+    <td><%= @restaurant.description %></td>
+    <td><%= @restaurant.address %></td>
+    <td><%= @restaurant.phone %></td>
+  </tr>
+</table>
