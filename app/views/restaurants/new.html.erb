@@ -1,6 +1,14 @@
 <h1>Reservester#new</h1>
 
 <%= form_for @restaurant do |r| %>
+  <% if @restaurant.errors.any? %>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <p>
     <%= r.label :name %><br>
     <%= r.text_field :name %>
