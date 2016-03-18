@@ -1,7 +1,9 @@
 <h1>Reservester#show</h1>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
-<%= link_to 'Destory', restaurant_path(@restaurant), method: :delete %>
+<% if @restaurant.owner == current_owner %>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+  <%= link_to 'Destory', restaurant_path(@restaurant), method: :delete %>
+<% end %>
 
 <table>
   <tr>

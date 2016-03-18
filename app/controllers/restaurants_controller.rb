@@ -25,11 +25,12 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = current_owner.restaurants.find_by(params[:id])
+    return(redirect_to( restaurants_path, notice: "cannot edit") )unless @restaurant
   end
 
   def update
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = current_owner.restaurants.find(params[:id])
 
     if @restaurant.update(restaurant_params)
       redirect_to @restaurant
@@ -39,10 +40,11 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = current_owner.restaurants.find_by(params[:id])
+    return(redirect_to( restaurants_path, notice: "cannot delete") )unless @restaurant
     @restaurant.destroy
 
-    redirect_to restaurants_path
+    redirect_to restaurants_path, notice: "deleted"
   end
 
 private
