@@ -25,8 +25,9 @@
 </table>
 
 <% if owner_signed_in? %>
-  <%= link_to 'Sign out', destroy_owner_session_path, method: :delete %>
+  <li>Currently signed in as <%= link_to current_owner.email, edit_owner_registration_path %></li>
+  <li><%= link_to 'Sign out', destroy_owner_session_path, method: :delete %></li>
 <% else %>
-  <%= link_to 'Sign in', new_owner_session_path %>
-  <%= link_to 'Sign up', new_owner_registration_path %>
+  <li><%= link_to 'Sign in', new_owner_session_path %></li>
+  <li><%= link_to 'Sign up', new_owner_registration_path %></li>
 <% end %>

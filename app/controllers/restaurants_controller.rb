@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_action :authenticate_owner!
+
   def index
     @restaurants = Restaurant.all
   end
